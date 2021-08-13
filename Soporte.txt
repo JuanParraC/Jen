@@ -1,0 +1,383 @@
+﻿Jen
+¨¨¨¨¨
+Framework para desarrollo de aplicaciones
+Programador : Juan Parra
+Version 2.0
+
+
+Directivas de Compilacion
+--------------------------------
+
+Usualmente usadas
+ SOLinux
+ Binarizar; RuntimeCache; AplicacionWeb
+ BaseDeDatoOracle;Binarizar; RuntimeCache; AplicacionWeb
+
+Para activar ese tipo de motor de base de datos
+	BaseDeDatoOracle
+    BaseDeDatoSQLServer
+    BaseDeDatoMySQL
+    BaseDeDatoPostgreSQL
+
+Para indicar el tipo de aplicacion
+    AplicacionWeb
+    AplicacionEscritorio
+    AplicacionMovil
+
+Para indicar sistema operativo
+	SOLinux
+
+Para indicar que se binarizan los recursos
+	Binarizar
+
+Para indicar soporte de MARS en el driver de base de datos
+	MultipleActiveResultSets
+
+Para activar el hosteo de objetos en memoria
+    RuntimeCache
+
+Para activar el monitoreo de las excepciones de memoria.
+    LogExcepcionesBD
+
+Para activar el logeo de las operaciones de creacion del constructor
+	LogConstructor
+
+Para activar logero de invocaciones url
+	LogURL
+
+Para activar solo la funcionalidad requerida para la puesta en productivo de la aplicacion
+    Despliegue
+
+Para activar la funcionalidad de modo de pruebas    
+    Test
+ 
+Modificaciones futuras
+    
+    ejecución asincronica de sql para la detección de errores
+    
+    parametrizar el archivo de constantes
+    
+    Soporte ODP de oracle para mejor rendimiento con base de datos oracle
+
+    Patron que implemente el proceso JSON mediante un delegado.
+    
+    Modificar la clase requerimiento para procesar json
+    
+    Loggins para la deteccion de errores
+
+    Creación de un layer de persistencia separando la abstración para permitir la integracion con
+    SAP.Net Connector
+09/08/2021
+    Se agregan operadores de inclusion y excusion para arreglos de string nativos y Jen.Json    
+28/11/2020
+    Agrega propiedad AndOr en campos para soportar operaciones de and y or en la composicion de criterios
+23/12/2019
+    Se da soporte a la generacion de codigo via plantillas, IU.Generacion
+    Agrega propiedad de persistencia a las variables de una plantilla, permite la generacion de contenido 
+    en varios pasos y variables dentro de variables
+    Mejora la implementacion de Constructor.RespuestaHttp para soportar Rest
+    Crea el evento Json.Base64 para el transporte de texto con formato
+
+23/09/2019
+    se agrega propiedad Tag a la clase Semilla
+
+05/05/2019
+    Permite la instanciacion de objetos con constructor json
+24/04/2019
+    Agrega en Jen.Eventos para procesar valores por tipo hacia su representacion json
+27/03/2019
+    Primera implementacion del driver SQLite
+24/12/2018
+    Generaliza la germinacion de embriones limitando solo al constructor por defecto
+07/11/2018
+    hace publico el delegado de adopcion en el recipiente para permitir modificar ese comportaminto
+    agrega la clase Envoltorios que contiene el texto entre secciones variables, con objeto de 
+    contabilizar y optimizar el uso de memoria
+23/10/2018
+    Mejora la implementacion linealizando la instanciacion creando un clases Compilador y Objeto y Arreglo 
+16/08/2018
+    Implementa DesXml<T> que permite crear un objeto Jen en base a su imagen string xml, luego a = DesXml(Serializar(o)) permite clonar objetos
+05/07/2018
+    Implementa Invocar que permite instanciar un handler 
+14/06/2018
+    acepta el valor null como valor nulo y valida los requeridos con esa directriz
+11/06/2018
+    Incorpora Evento<Campo> para manejar tipos Texto JSON(B)
+04/06/2018
+    Incorpora definiciones IValor<T> Dato<T> para generalizar 
+18/03/2018
+	Cambia el enumerador del recipiente, basandose en TryGetValue, Keys eliminando la referencia de Values
+04/01/2018
+	Mejora el mecanismo de eventos, permitiendo ejecucion correcta de eventos originados en tiempo de ejecucion
+13/11/2017
+	La clase campo implementa un valor interno tipo object para recuperar diversos tipos
+05/04/2017
+	ILectorBD debe implementar IDisposable para que sea usado bajo el patron using(){}
+	Implementa todas las operaciones internas de base de datos bajo el paradigma usign
+09/01/2017
+	Mejora la clase Json  para soportar el objeto json mediante un Dictionary<string, obj>
+03-11-2016
+	Mejora el almacenamiento de objetos de la sesion, el hospedaje de objetos se realiza en la sesion bajo el identificador hascode del handler
+	Incorpora clase SolicitudWeb para los handlers
+	Mejora las directivas de compilacion para app web y app escritorio
+
+21/03/2016
+	Incorpora la directiva SOLinux
+	Permite por directiva de compilacion el uso de MARS en el driver de base de datos
+18-01-2016
+	Mejora la clase json para soportar uso de comillas simples y dobles indistintamente permitiendo una dentro de otra
+16/11/2015
+	Soporta la serializacion de objetos excluidos, esto permite que sean activados programaticamente
+	Crea el metodo proximo para la clase Serie, para permitir consultar valores proximos en la serie de atributos serializados
+
+24-08-2015
+	Crea metodo modelo en catalogo para soportar sub modelos de un catalogo dentrol de Jen
+
+20/08/2015
+	Permite configursar la URL para soportar llamadas a diferentes sitios
+
+05/08/2015
+	Refactoriza el diseño de transacciones en bases de datos. Existe una operacion de base de datos que la implementa la clase especializada.
+	las operaciones insertar, actualizar ... pasan a la clase abstracta centraliza toda la gestion del recurso base de datos en un punto.
+	Permite consultas llamando a procedimientos almacenados con soporte de parametros variables
+
+05/08/2015
+	Elimina los autonumericos de la lista de actualizacion al crear la instruccion de actualizacion
+11/05/2015
+	Incoorpora directiva de compilación Binarizar
+
+15/04/2015
+	Modifica el evento CalcularSequencia, considerando si el campo ya tiene valor no lo calcula 
+04/03/2015
+	Modifica el metodo de ejecución de eventos informado cual es el triger que gatilla la ejecuciòn del metodo ejecuta
+
+23/02/2015
+	Se habilita SqlContador a nivel de base de datos para proveer un contador personalizado cuando se amerite
+25/10/2014
+	Se implementa acceso randomico de objetos hosteados para eliminar contención
+	Se implementa runtimecache para usuario
+05/03/2014
+    Se modifica la obtencion de secuencia de campo, se crea una propiedad SEQ que contiene la sintaxis para obtener una secuencia.
+
+06/06/2013
+    Se realiza un refactoring de las directivas de compilacion permitiendo dar soporte a aplicaciones web, de escritorio y a futuro moviles.
+    Se rediseña el sistema de caching para poder soportar los diferentes ambientes para la ejecucion.
+
+28/04/2012
+    Pemite extensiones como eventos, base de datos y objetos graficos, estos debe ser registrados en
+    el achivo Clases.xml, es necesario usar AssemblyQualifiedName para los nuevos objetos, use la clase DefinirTipos para 
+    incorporar extensiones
+
+11/04/2012
+    Soporta propiedades de registro    
+    
+30/03/2012    
+    Cambia la definicion de la structura Lenguaje por public static partial class Lenguaje con el objeto 
+    de poder cambiar esa definicion por el programador
+    
+07/03/2012
+    Refactoriza la clase Dato<T> por Dato, pues solo se utiliza T de tipo string
+
+05/03/2012
+    Cierra los dbreader que se generar al llamar BaseDeDatos.Consultar(Sql)
+    
+07/02/2012
+    Mejora el metodo Constructor.informarRestauracion para aplicaciones de consola como generadores
+    
+04/12/2011
+    Corrige el manejo de transacciones para las base de datos Oracle y elimina el soporte de 
+    base de datos OracleOleDb
+    
+19/11/2011
+    Implementa el driver para utilizar base de datos PostgreSQL    
+
+18/11/2011
+    Mejora el cierre de conexiones de DataReader y base de datos.
+    
+22/09/2011
+    mejora la serializacion de recipientes crudos, ej Recipiente<Dato<string>>
+        
+16/09/2011
+    Completa la implementacion de oracle.cs para el soporte del control de error y el manejo de la
+    eliminacion considerando la integridad referencial.
+    extirpa el codigo que maneja el control de estado de los objeto cuando es una aplicacion RuntimeCache
+    
+07/09/2010
+    Mejora la ordenacion paginada para sqlserver y oracle. Falta para mysql.
+    
+02/04/2011
+    Elimina  el metodo cada por necesidad del break dentro de la iteración
+    Elimina tipos que solo sostenian su nombre, como Traductores, Valores..., bajando a su declaración de recipiente<t>
+    
+    
+30/03/2011
+    Refactoriza el modelo incorporando la clase eventos, desaparecen Metodos, Validaciones y validacion
+    Campo y Registro extienden eventos
+    Se incorpora el estado error 
+    Delegados soportan los antiguos delegados y las validaciones
+    Refactoriza el contenedor hacia un recipiente
+    
+24/03/2011
+    Mejora la operatoria con el objeto de seleccion de datos DbDataReader en las iteraciones.
+    
+04/03/2011
+    implementa el soporte de transacciones para la base de datos 
+    BaseDeDatos.InicioTransaccion, BaseDeDatos.comprometer, BaseDeDatos.deshacer
+    
+16/02/2011
+    Completa la Deserializacion binaria 
+    Mejora la clase delegados refactorizando el elemento PoolTriggers     
+    
+10/01/2011    
+    Incorpora el metodo excluir del contendor, afecta al contenido de este excluyendo los elementos indicados en la llamada
+    
+05/10/2011
+    Agrega la posibilidad de utilizar OleDb para oracle usando la directiva BaseDeDatoOracleOleDb
+    El consultor soporta contador personalizado y un constructor que acepta el sql personalizado
+    
+08/11/2010
+    Mejora el proceso de restauración eliminando casting y tamaño de los archivos binarios
+    Mejora la restauracion de los traductores
+    Los traductores no restauran el estado puesto que este aporta un delegado de restauracion
+    
+15/10/2010
+    Mejora la paginación utilizando row_number() 
+    Implementa modelo para manejar variables 
+    Ajusta la implementacion de variables permitiendo especificar separador
+    Restaura ordenamiento del campo
+    Cambia la implemntacion de traductor cargando cuando se quita la exclusion refactorizando traductores
+    
+24/09/2010
+    Restaura la propiedad de ordenamiento del campo    
+
+01/08/2010    
+    Integracion a nivel de Reader y deja de utilizar DataSets
+        
+03/12/2009
+    Se mejora la contención en la escritura de archivos    
+        
+
+06/10/2009    
+    Se mejora en el registro el manejo de criterios y se corrige la eliminación
+    Se mejora la clase JSON
+
+05/10/2009
+    Se implementa modelos o sub catalogos, contando con una definición del metadato Modelo.aspx?modelo=[tablas]   
+    proporciona sub modelos.
+    se implementa el acceso sincronizado a objetos hosteados en runtime.cache.
+    Completa la implementacion de la base de datos Oracle.
+    Se implementa soporte varios modelos graficos y estos sean direccionables por el controlador via el id del objeto grafico.
+        
+    
+01/10/2009
+    Correccion de implementacion de BaseDeDatos.sqlCriterios
+    
+24/10/2009    
+    Mejoras de rendimiento de la clase patron.
+    
+21/10/2009
+    Se mejora la clase patron para soportar multi ocurrencias    
+    Se incorpora clase Json para evaluar texto json y devuelve un modelo de objeto basado en hash table
+    Se incropora las propiedades a la clase patron para cambiar la definición por defecto ${...} de variables.
+    
+14/10/2009
+    Se incorpora un objeto error.
+26/05/2009
+    Corrige propiedad _corteControl de publica a internal y asigna un restaurador para el campo
+    Se corrigen los tipos de transitividad para las bases Oracle y SqlServer
+    
+
+30/03/2009
+    Cache de objetos en tiempo de ejecucion bajo objetos con soporte de estado y recuperacion
+    Se hostean objetos en System.Web.HttpRuntime.Cache,
+    se incorpora el estado ocupado sea la inicializacion (xml, bin, o stream) hay una peticion de hostear un
+    objeto
+    El programador puede modificar cualquier propiedad y una vez que ocurra el fin del request lo restauramos
+    la restauracion la realiza un modulo System.Web.IHttpModule por lo que es necesario incorporar en el web.config
+    
+     <system.web>
+         <httpModules>
+            <add name="Restaurador" type="Jen.Restaurador" />
+        </httpModules>    
+    ..
+        
+        
+12/03/2009
+    Se incorpora despues de la inicializacion del campo un proxy que apunta a al objeto que entrega el conextor 
+    a la base de datos, esto se implementa para porder inyectar criterios al consultor con los valores originales
+    tambien permitira realizar operaciones de matematicas sin tener que realizar conversiones sobre campos numericos
+    habiendo realizado el test el casting de object a double es 15% mas rapido que System.Convert
+    despues de 10000 operaciones 
+
+12/01/2009
+    Se elimina la propiedad etiqueta del objeto grafico
+    Se eliminan el objeto grafico del objeto semilla
+    Se cambia el objeto grafico del campo por una propiedad grafica que almacena diversos objetos graficos
+    (ej. un campo puede implementar una etiqueta y un input).
+    Se agrepa un metodo de acceso numerico al contenido de un recipiente (ej contenido[0]) esto permite eliminar 
+    el metodo arreglo que crea un array con el contenido
+
+09/01/2009
+    Se corrige el articulo del campo
+    
+05/01/2009
+    Se hace publica las variables de los patrones
+19/12/2008
+    Se corrigen propiedades del registro pare que retorne correctamente la propiedad articulo.
+    Se hace publica la propiedad articulo de los semillas
+    Se modifica el delegado de pos inicialización xml de resgistros y campos para que las 
+    validaciones contenidas queden correctamente inicializadas
+    Se corrigue la validacion unico seteando la propiedad expresion sql para determinar si exste unicidad
+17/12/2008
+    Cambio del vaining de modelo plantilla con interfases patron y plantilla
+16/12/2008
+    Un patron o plantilla despues del pintado reinicializa el contenido así una plantilla se puede usar para pintar 
+    varias veces
+    Se cambia el diseño de plantillas creando una interfase IPatron una clase base Patron y una extension Plantilla
+    para soportar más generalidad.
+11/12/2008
+    El modelo auto inicializa las variables si no estan seteadas al pintar
+10/12/2008
+    La propiedad articulo se cambia de metodo a propiedad
+    Cambio en el modelo de almacenamiento de indices, es una propiedad del registro
+    
+09/12/2008
+    Se agrega la propiedad serializacionIndentada al Constructor para la generacion de xml
+    Se agrega la validacion de registro para los campos clave
+    Se modifica la validacion unico que valida por cada campo con la propiedad, la unicidad es por campo
+14/10/2008    
+    Se reestructura de mejor manera el metodo [internal override void inicializa(delegado d)] en todos los casos 
+10/10/2008
+    Se agrega el objeto IU.HTML.Combo para pintar listas solas
+        
+09/10/2008
+    Se incopora propiedad requerimiento al traductor para que internamente se resuelvan las las expresiones
+    dentro de la consulta del traductor
+    
+08/10/2008
+    se modifica el delegado xml del registro parseando las variables de las consultas de los traductores
+    Se incorpora la propiedad consulta al traductor permitiendo el soporte de expresiones en la clausula 
+    de seleccion.
+    Se modifica la plantilla separando la funcionalidad en dos clases modelo y plantilla en donde
+    plantilla especializa un modelo, patron o esqueleta otorgando un contexto que proporciona los 
+    valores a traspasar.
+    Elimina el método listaSelect del traductor, esa funcionalidad la asume el Jen.IU.HTML.Select
+    Crea la clase Traduciones que extiende Dato<Tipo> para incorporar la propiedad seleccionado dentro del traductor
+    Se crea el espacio IU.JSON para la generacion de texto en ese formato junto con la clase traductor que genera la lista de este a json
+    
+07/10/2008
+    Se corrige error en la expresión de inclusión en clase Recipiente<Contenido> metodo public System.Collections.Generic.List<Retorno> cada<Retorno>(delegado<Retorno, Contenido> delegado) 
+    
+14/09/2008 
+    propiedad tag al campo para almacenar info de proposito general
+
+13/09/2008 
+    Se agrega la funcionalidad para campos declarados como expresiones SQL.
+    se modifica el metodo representacionCampoEnSelect para las clase Oracle y SQLServer
+
+01/04/2008 
+    primer port del modelo de clases 0.1 basado en los proyectos semilla(asp), jen(java)
+
+
+
+    

@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{77B1710B-A5BA-43BF-AC42-661B78F93585}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Jen</RootNamespace>
+    <AssemblyName>Jen</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>jen.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>Try;LOGGER;TRACE;SOLinux;DEBUG;AplicacionEscritorio;BaseDeDatoPostgreSQL;BaseDeDatoSQLServer;BaseDeDatoSQLite;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
+    <Prefer32Bit>false</Prefer32Bit>
+    <ExternalConsole>false</ExternalConsole>
+    <ExternalConsole>false</ExternalConsole>
+    <RunWithWarnings>true</RunWithWarnings>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>Binarizar;AplicacionEscritorio;BaseDeDatoPostgreSQL</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Jen.XML</DocumentationFile>
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <IntermediateOutputPath></IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Kaizen|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Kaizen</OutputPath>
+    <DefineConstants>LOGGER;TRACE;SOLinux;DEBUG;AplicacionWeb;BaseDeDatoPostgreSQL;BaseDeDatoSQLServer;Binarizar;BaseDeDatoSQLite</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile></DocumentationFile>
+    <IntermediateOutputPath></IntermediateOutputPath>
+    <NoWarn></NoWarn>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <PlatformTarget>anycpu</PlatformTarget>
+    <Commandlineparameters></Commandlineparameters>
+    <AssemblyOriginatorKeyFile>jen.snk</AssemblyOriginatorKeyFile>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConsolePause>true</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'ctrl|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\ctrl</OutputPath>
+    <DefineConstants>LOGGER;TRACE;SOLinux;DEBUG;AplicacionEscritorio;BaseDeDatoPostgreSQL;BaseDeDatoSQLite;Try</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'qpWeb|AnyCPU' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\qpWeb</OutputPath>
+    <DefineConstants>Try;LOGGER;TRACE;SOLinux;DEBUG;AplicacionWeb;BaseDeDatoPostgreSQL;Binarizar;BaseDeDatoSQLite;BaseDeDatoSQLServer</DefineConstants>
+    <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="Mono.Data.Sqlite" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="NLog">
+      <HintPath>..\lib\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\lib\Npgsql.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Aplicacion.cs" />
+    <Compile Include="Atributos.cs" />
+    <Compile Include="BaseDatos.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Cache\Usuario.cs" />
+    <Compile Include="Campo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Campos.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Catalogo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Constantes.cs" />
+    <Compile Include="Constructor.cs" />
+    <Compile Include="Consultor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Cubo.cs" />
+    <Compile Include="Embrion.cs" />
+    <Compile Include="Error.cs" />
+    <Compile Include="Interfases\IValor.cs" />
+    <Compile Include="Dimension.cs" />
+    <Compile Include="Interfases\ILectorBD.cs" />
+    <Compile Include="Metrica.cs" />
+    <Compile Include="Navegador.cs" />
+    <Compile Include="RDBMS\PostgreSQL.cs" />
+    <Compile Include="Recipiente.cs" />
+    <Compile Include="Eventos.cs" />
+    <Compile Include="Dato.cs" />
+    <Compile Include="Delegados.cs" />
+    <Compile Include="Eventos\CalcularAhora.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Eventos\CalcularSecuencia.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Eventos\CargarPrimerRegistro.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Eventos\ContarRegistros.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Eventos\ExcluirSecuencia.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Eventos\IncluirSecuencia.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfases\ICampos.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfases\IConsejos.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfases\IConsultable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfases\IConsultor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfases\IContexto.cs" />
+    <Compile Include="Interfases\IEntradaUsuario.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfases\IEtiqueta.cs" />
+    <Compile Include="Interfases\IEtiquetaIConsejos.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfases\IEvento.cs" />
+    <Compile Include="Interfases\IOrigenes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfases\ISemilla.cs" />
+    <Compile Include="IU\Agrupar.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\Ayuda.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\CheckBox.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\Consejos.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\Contador.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\Etiqueta.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\Id.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\Nombre.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\ObjetoGrafico.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\Opciones.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\Readonly.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\Valor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Evento.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Patron.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Plantilla.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Propiedades.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RDBMS\MySQL.cs" />
+    <Compile Include="RDBMS\ORACLE.cs" />
+    <Compile Include="RDBMS\SQLServer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Registro.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Relacion.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Requerimiento.cs" />
+    <Compile Include="Semilla.cs" />
+    <Compile Include="Serie.cs" />
+    <Compile Include="Traductor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Util.cs" />
+    <Compile Include="Eventos\ValidarClave.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Eventos\ValidarCriterios.cs" />
+    <Compile Include="Eventos\ValidarAntesDeEliminar.cs" />
+    <Compile Include="Eventos\ValidarDigitoVerificador.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Eventos\ValidarExpresionRegular.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Eventos\ValidarExpresionSQL.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Eventos\ValidarFecha.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Eventos\ValidarNumerico.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Eventos\ValidarRequerido.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Eventos\ValidarUnico.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Eventos\Formatear.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Eventos\Valor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Eventos\Traducir.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Variables\Declaracion.cs" />
+    <Compile Include="Variables\Declaraciones.cs" />
+    <Compile Include="Variables\Instancias.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Variables\Variable.cs" />
+    <Compile Include="Variables\Variables.cs" />
+    <Compile Include="SolicitudWeb.cs" />
+    <Compile Include="Eventos\Json\ValorJson.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Eventos\Json\ObjetoJson.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Invocar.cs" />
+    <Compile Include="Json\Compilador.cs" />
+    <Compile Include="Json\Arreglo.cs" />
+    <Compile Include="Json\Objeto.cs" />
+    <Compile Include="Json\IJson.cs" />
+    <Compile Include="Json\JsonToken.cs" />
+    <Compile Include="Json\JsonTipo.cs" />
+    <Compile Include="Variables\Envoltorios.cs" />
+    <Compile Include="Variables\Valores.cs" />
+    <Compile Include="RDBMS\SQLite.cs" />
+    <Compile Include="Eventos\Json\TextoJson.cs" />
+    <Compile Include="Eventos\Json\FechaJson.cs" />
+    <Compile Include="Eventos\Json\BoolJson.cs" />
+    <Compile Include="Eventos\Json\IntArrJson.cs" />
+    <Compile Include="RDBMS\Descriptores\DescBD.cs" />
+    <Compile Include="RDBMS\Descriptores\PostgreSQL.cs" />
+    <Compile Include="Extensiones\String.cs" />
+    <Compile Include="RDBMS\Descriptores\SQLite.cs" />
+    <Compile Include="Eventos\Xml\IntArrXml.cs" />
+    <Compile Include="Eventos\Xml\TextoXml.cs" />
+    <Compile Include="Eventos\Xml\ValorXml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\Generacion\TipoJS.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\Generacion\AtrsAdd.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\Generacion\SQLSelect.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\Generacion\SQLFrom.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\Generacion\Registro\XmlReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\Generacion\SubPlantilla.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\Largo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\Tabla.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Interfases\ITabla.cs" />
+    <Compile Include="IU\IdPadre.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IU\Generacion\VarPas.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Eventos\Json\Base64.cs" />
+    <Compile Include="RDBMS\Descriptores\ORACLE.cs" />
+    <Compile Include="Extensiones\Catalogo.cs" />
+    <Compile Include="Extensiones\Registro.cs" />
+    <Compile Include="Extensiones\Campo.cs" />
+    <Compile Include="Extensiones\BaseDeDatos.cs" />
+    <Compile Include="RDBMS\Descriptores\SQLServer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="jen.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Diseño.txt" />
+    <Content Include="Motivacion.txt" />
+    <Content Include="Soporte.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Eventos\Json\" />
+    <Folder Include="Json\" />
+    <Folder Include="RDBMS\Descriptores\" />
+    <Folder Include="Extensiones\" />
+    <Folder Include="Eventos\Xml\" />
+    <Folder Include="IU\Generacion\" />
+    <Folder Include="IU\Generacion\Registro\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

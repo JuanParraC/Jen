@@ -1,0 +1,57 @@
+﻿Autor : Juan Parra
+3Soft Ltda
+
+Errores
+
+
+Anotaciones de diseño, rediseño y refactoring del framework Jen
+
+Mejorar el catalogo permitiendo eventos a este nivel, esto es necesario para producir un evento al final de la inicializacion 
+que es necearia para enlazar los objetos relacionados, para este caso, las dimensiones que deben apuntar a los registros que mapena el origen de datos.
+
+
+Mejorar el sistema de eventos, hoy es una definicion en enum Evento, pero se puede anticipar que
+requiere un sistema dinamico de eventos.
+
+
+
+04/2013
+    
+    para sopotar el inicialización tardía, o diferente mediante un evento que se ejecute al final de 
+    la inicializacion proveniente desde disco(xml, bin).
+        
+
+09/2012
+    Proceso de instanciación de objetos del framework.
+        Se creó un objeto embrión cuyo objetivo es germinar instancias de objetos.
+        Inicialmente estaba estipulado que serían solo objetos ISemilla pero basta con que estos objetos tengan un constructor por defecto 
+        y otro de serialización binaria.
+        El constructor tiene una coleccion de embriones que le permiten la instanciación dinámica y dinámica tipada.
+        ej dinámica tipada : Semilla s = Embriones["Semilla"].Germinar<Semilla>();
+        ej dinámica : Semilla s = (Semilla)Embriones["Semilla"].Germinar();
+        Existe un archivo de clases Clases.Xml que tiene la lista de objetos disponibles en el sistema.
+        Las extensiones deben ser registradas vease en Utilidades/CrearExtensiones.aspx
+
+
+
+05/2012
+    Proceso de instanciación de objetos del framework.
+        Construir un sistema de instanciación coninico que utilice la construción usando la super clase.
+        
+        Para el caso del constructor binario, se debe utilizar la creación via la generacion de un DynamicMethod
+        que instancie el objeto del tipo accediendo al constructor definido en ISerializable
+        ctor(SerializationInfo, StreamingContext) y emitiendo il para generar la llamada,
+        
+        aparece la clase embrion que extiende un dato y inicializa el tipo y crea metodo de instanciación
+
+        Cada objeto debe soportar la creación binaria mediante el contructor (SerializationInfo, StreamingContext).
+        Idear un mecanismo que asegure el almacenamiento y recuperación utilizando SerializationInfo.
+            utilizar un contador como mecanismo de indexación.
+
+        El constructor contenga un generador de prefijos para la serializacion de los objetos
+        para ahorrar espacio que genere series de 255 y despues continue con el siguiente caracter 
+
+
+
+        
+
